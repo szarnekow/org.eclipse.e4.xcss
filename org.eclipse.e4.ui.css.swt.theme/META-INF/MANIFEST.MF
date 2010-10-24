@@ -1,0 +1,68 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Service-Component: OSGI-INF/thememanager.xml
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.e4.ui.css.swt.theme;singleton:=true
+Eclipse-SourceReferences: scm:cvs:pserver:dev.eclipse.org:/cvsroot/ecl
+ ipse:e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.swt.theme;tag
+ =v20100723-1830
+Require-Bundle: org.eclipse.swt;bundle-version="3.6.0",org.eclipse.e4.
+ ui.css.swt;bundle-version="0.9.1",org.eclipse.e4.ui.css.core;bundle-v
+ ersion="0.9.0",org.eclipse.equinox.common;bundle-version="3.6.0",org.
+ w3c.css.sac;bundle-version="1.3.0",org.eclipse.equinox.registry;bundl
+ e-version="3.5.0",org.eclipse.equinox.preferences;bundle-version="3.3
+ .0"
+Export-Package: org.eclipse.e4.ui.css.swt.internal.theme;x-internal:=t
+ rue,org.eclipse.e4.ui.css.swt.theme;x-friends:="org.eclipse.e4.ui.wor
+ kbench.renderers.swt,org.eclipse.e4.ui.workbench.swt,org.eclipse.ui.w
+ orkbench"
+Bundle-Version: 0.9.0.v20100723-1830
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Import-Package: org.osgi.framework;version="1.5.0"
+Bundle-ManifestVersion: 2
+
+Name: OSGI-INF/thememanager.xml
+SHA1-Digest: Lz+HmMg4uYqhl3MTR5mfwpALsiw=
+
+Name: org/eclipse/e4/ui/css/swt/internal/theme/ThemeEngine$1.class
+SHA1-Digest: qH3PqrYGMZEWScD6tpx5JJlkCXU=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/e4/ui/css/swt/internal/theme/BootstrapTheme3x.class
+SHA1-Digest: 3NdhDglFD4CORqBnSrOOQ9MbnyE=
+
+Name: org/eclipse/e4/ui/css/swt/theme/ITheme.class
+SHA1-Digest: 5j3c7kFodDhBzq0CWFB4m1/iV6U=
+
+Name: org/eclipse/e4/ui/css/swt/internal/theme/ThemeEngineManager.clas
+ s
+SHA1-Digest: rqk0vmIHWEN3MevE0ilS5/1yHUQ=
+
+Name: org/eclipse/e4/ui/css/swt/theme/IThemeEngine.class
+SHA1-Digest: jd5knavTkuIlJqtsFqWcQjlGl38=
+
+Name: about.html
+SHA1-Digest: +KDQabAA/C3O/NP2n7v/WkoTZVo=
+
+Name: plugin.properties
+SHA1-Digest: MsMHpTyB8X+zhWRIllU8Iyfr0tw=
+
+Name: css/dummy.css
+SHA1-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: org/eclipse/e4/ui/css/swt/internal/theme/Theme.class
+SHA1-Digest: 1cA4BqRDwavJXrzq9M08fEZzN+k=
+
+Name: org/eclipse/e4/ui/css/swt/internal/theme/ThemeEngine.class
+SHA1-Digest: 43l717MWMWSyfUyBZPvFIXC4swE=
+
+Name: org/eclipse/e4/ui/css/swt/theme/IThemeManager.class
+SHA1-Digest: C5GTHoBXqQ6Y5/3SjBzy8yL2qaE=
+
+Name: plugin.xml
+SHA1-Digest: t5FN8cHon+POMwGKBjIeFGS7R3c=
+

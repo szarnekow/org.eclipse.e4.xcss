@@ -1,1 +1,7 @@
 e4 Renderer based on the Xcss language which is part of the Xtext project (see http://www.xtext.org)
+
+The implementation is contained in the bundle fragment org.eclipse.e4.ui.css.swt.theme.xcss.
+However, we had to copy the host bundle and remove the OSGi service registration for 
+pragmentic reasons: It was simply not possible to supersede the entry in the thememanager.xml.
+If we find a bulletproof way to shadow the service registration from the outside, we'll 
+be pleased to do so.
