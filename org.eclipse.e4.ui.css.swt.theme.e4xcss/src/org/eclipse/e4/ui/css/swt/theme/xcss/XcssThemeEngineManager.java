@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.xtext.example.css.XcssStandaloneSetup;
 import org.eclipse.xtext.example.css.rendering.XcssRendererHelper;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 /**
@@ -38,7 +39,15 @@ public class XcssThemeEngineManager implements IThemeManager {
 	public XcssThemeEngineManager() {
 		logger.debug("Instantiated XcssThemeEngineManager");
 		INSTANCE = this;
-		injector = new XcssStandaloneSetup().createInjectorAndDoEMFRegistration();
+		injector = new XcssStandaloneSetup() {
+			public Injector createInjector() {
+				return Guice.createInjector(new org.eclipse.xtext.example.css.XcssRuntimeModule() {
+					public ClassLoader bindClassLoaderToInstance() {
+						return XcssThemeEngineManager.class.getClassLoader();
+					}
+				});
+			}
+		}.createInjectorAndDoEMFRegistration();
 	}
 	
 	public IThemeEngine getEngineForDisplay(Display display) {
