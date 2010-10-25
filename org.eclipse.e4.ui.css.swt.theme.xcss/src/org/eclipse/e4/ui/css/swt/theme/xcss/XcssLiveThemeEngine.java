@@ -19,7 +19,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.xtext.builder.builderState.IBuilderState;
 import org.eclipse.xtext.example.css.ui.AccessibleXcssActivator;
-import org.eclipse.xtext.example.css.ui.rendering.XcssRendererHelper;
+import org.eclipse.xtext.example.css.ui.JdtAwareRenderingHelper;
 import org.eclipse.xtext.example.css.xcss.StyleSheet;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.ui.shared.Access;
@@ -39,7 +39,7 @@ public class XcssLiveThemeEngine implements IThemeEngine, IResourceDescription.E
 	private Display display;
 	private IBuilderState resourceDescriptions;
 	private Map<URI, ITheme> themes;
-	private XcssRendererHelper renderer;
+	private JdtAwareRenderingHelper renderer;
 
 	public XcssLiveThemeEngine(Display display) {
 		logger.debug("Instantiated XcssLiveThemeEngine for display: " + display.toString());

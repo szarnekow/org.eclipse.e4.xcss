@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 import org.eclipse.xtext.example.css.ui.AccessibleXcssActivator;
-import org.eclipse.xtext.example.css.ui.rendering.XcssRendererHelper;
+import org.eclipse.xtext.example.css.ui.JdtAwareRenderingHelper;
 import org.eclipse.xtext.example.css.xcss.StyleSheet;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.util.CancelIndicator;
@@ -35,7 +35,7 @@ public class XcssBuilderParticipant implements IXtextBuilderParticipant {
 
 	private static final Logger logger = Logger.getLogger(XcssBuilderParticipant.class);
 	
-	private XcssRendererHelper renderer;
+	private JdtAwareRenderingHelper renderer;
 
 	private IResourceValidator validator;
 	

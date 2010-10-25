@@ -5,7 +5,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Widget;
-import org.eclipse.xtext.example.css.ui.JdtAwareRenderingHelper;
+//import org.eclipse.xtext.example.css.ui.rendering.XcssRendererHelper;
+import org.eclipse.xtext.example.css.rendering.XcssRendererHelper;
 import org.eclipse.xtext.example.css.xcss.StyleSheet;
 
 /**
@@ -17,9 +18,9 @@ public class XcssStyleApplier implements Runnable {
 	
 	private final StyleSheet styleSheet;
 	private final Display display;
-	private final JdtAwareRenderingHelper renderer;
+	private final XcssRendererHelper renderer;
 
-	public XcssStyleApplier(Display display, StyleSheet styleSheet, JdtAwareRenderingHelper renderer) {
+	public XcssStyleApplier(Display display, StyleSheet styleSheet, XcssRendererHelper renderer) {
 		this.display = display;
 		this.styleSheet = styleSheet;
 		this.renderer = renderer;
