@@ -24,6 +24,10 @@ public class XcssTheme implements ITheme{
 	public String getId() {
 		return uri.toString();
 	}
+	
+	public URI getIdAsURI() {
+		return uri;
+	}
 
 	public String getLabel() {
 		String fileName = uri.trimFileExtension().lastSegment();

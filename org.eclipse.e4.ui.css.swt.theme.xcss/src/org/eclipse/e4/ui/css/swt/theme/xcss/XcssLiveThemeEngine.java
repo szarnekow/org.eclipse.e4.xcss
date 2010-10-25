@@ -15,9 +15,7 @@ import org.eclipse.e4.ui.css.core.util.resources.IResourceLocator;
 import org.eclipse.e4.ui.css.swt.theme.ITheme;
 import org.eclipse.e4.ui.css.swt.theme.IThemeEngine;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.xtext.builder.builderState.IBuilderState;
 import org.eclipse.xtext.example.css.ui.AccessibleXcssActivator;
@@ -44,6 +42,7 @@ public class XcssLiveThemeEngine implements IThemeEngine, IResourceDescription.E
 	private XcssRendererHelper renderer;
 
 	public XcssLiveThemeEngine(Display display) {
+		logger.debug("Instantiated XcssLiveThemeEngine for display: " + display.toString());
 		this.display = display;
 		this.themes = Maps.newHashMap();
 		resourceDescriptions = Access.getIBuilderState().get();
@@ -64,6 +63,7 @@ public class XcssLiveThemeEngine implements IThemeEngine, IResourceDescription.E
 	}
 
 	public void descriptionsChanged(IResourceDescription.Event event) {
+		logger.debug("Descriptions changed");
 		boolean currentThemeChanged = false;
 		for(IResourceDescription.Delta delta: event.getDeltas()) {
 			if ("xcss".equals(delta.getUri().fileExtension())) {
@@ -88,30 +88,7 @@ public class XcssLiveThemeEngine implements IThemeEngine, IResourceDescription.E
 	}
 	
 	protected void applyStyles(final StyleSheet styleSheet) {
-		display.syncExec(new Runnable() {
-			public void run() {
-				for(Shell shell: display.getShells()) {
-					applyStyles(styleSheet, shell, true);
-				}
-			}
-		});
-	}
-	
-	protected void applyStyles(StyleSheet styleSheet, Widget widget, boolean recurse) {
-		if (widget instanceof Shell) {
-			Shell shell = (Shell) widget;
-			try {
-				shell.setRedraw(false);
-				shell.reskin(SWT.ALL);
-				renderer.applyStyles(display, styleSheet, shell, recurse);
-			} catch (Exception e) {
-				logger.error(e.getMessage(), e);
-			} finally {
-				shell.setRedraw(true);
-			}
-		} else {
-			renderer.applyStyles(display, styleSheet, widget, recurse);
-		}
+		new XcssStyleApplier(display, styleSheet, renderer).applyStyles();
 	}
 	
 	public synchronized ITheme registerTheme(String id, String label, String basestylesheetURI) throws IllegalArgumentException {
@@ -138,8 +115,11 @@ public class XcssLiveThemeEngine implements IThemeEngine, IResourceDescription.E
 	}
 
 	public void setTheme(ITheme theme, boolean restore) {
-		if (theme == null)
+		if (theme == null) {
+			if (currentThemeId != null)
+				applyStyles();
 			return;
+		}
 		URI newTheme = URI.createURI(theme.getId());
 		if (!newTheme.equals(this.currentThemeId)) {
 			this.currentThemeId = newTheme;
@@ -154,7 +134,7 @@ public class XcssLiveThemeEngine implements IThemeEngine, IResourceDescription.E
 	public void applyStyles(Widget widget, boolean applyStylesToChildNodes) {
 		StyleSheet styleSheet = renderer.getStyleSheet(currentThemeId);
 		if (styleSheet != null) {
-			applyStyles(styleSheet, widget, applyStylesToChildNodes);
+			new XcssStyleApplier(display, styleSheet, renderer).applyStyles(widget, applyStylesToChildNodes);
 		}
 	}
 

@@ -7,6 +7,7 @@
  *******************************************************************************/
 package org.eclipse.e4.ui.css.swt.theme.xcss;
 
+import org.apache.log4j.Logger;
 import org.eclipse.e4.ui.css.swt.theme.IThemeEngine;
 import org.eclipse.e4.ui.css.swt.theme.IThemeManager;
 import org.eclipse.swt.widgets.Display;
@@ -18,7 +19,21 @@ import org.eclipse.swt.widgets.Display;
  */
 public class XcssThemeEngineManager implements IThemeManager {
 	
+	private static final Logger logger = Logger.getLogger(XcssThemeEngineManager.class);
+	
 	private static final String KEY = "org.eclipse.e4.ui.css.swt.theme";
+	
+	private static IThemeManager INSTANCE;
+	
+	public static IThemeManager getInstance() {
+		return INSTANCE;
+	}
+	
+	public XcssThemeEngineManager() {
+		logger.debug("Instantiated XcssThemeEngineManager");
+		INSTANCE = this;
+		
+	}
 	
 	public IThemeEngine getEngineForDisplay(Display display) {
 		IThemeEngine engine = (IThemeEngine) display.getData(KEY);
@@ -27,7 +42,7 @@ public class XcssThemeEngineManager implements IThemeManager {
 			engine = new XcssLiveThemeEngine(display);
 			display.setData(KEY, engine);
 		}
-		
+		logger.debug("Obtaining theme engine for display: " + display);
 		return engine;
 	}
 }
