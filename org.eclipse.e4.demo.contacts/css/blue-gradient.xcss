@@ -30,6 +30,7 @@ Composite #DetailsView {
 
 Table {
     background: #e3efff; // #c1d5ef 60%;
+    foreground: $black;
 }
 
 /*

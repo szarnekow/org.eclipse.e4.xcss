@@ -9,6 +9,8 @@ Label[parent instanceof Composite] {
 
 Label #SeparatorLabel {
 	foreground: #f08d00;
+//	borderWidth: 2;
+//	borderStyle: 'solid';
 }
 
 Text {
