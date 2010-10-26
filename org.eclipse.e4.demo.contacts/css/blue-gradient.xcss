@@ -1,0 +1,74 @@
+Label {
+//	font: Verdana 8px;
+	setForeground(#black);
+}
+
+Label[getParent instanceof Composite] {
+	setForeground(#black);
+}
+
+Label #SeparatorLabel {
+	setForeground(#1d,65,9f);
+}
+
+Text[getParent instanceof Composite] {
+	setForeground(#black);
+	setBackground(#white);
+}
+
+Text {
+//	font: Verdana 8px;
+}
+
+SashForm {
+	setBackground(#c1,d5,ef);
+}
+
+Composite #DetailsView {
+	setBackground(#e3,ef,ff); /* #c1d5ef 60%; */
+}
+
+Table {
+  setBackground(#e3,ef,ff); // #c1d5ef 60%;
+}
+
+/*
+.MTrimBar {
+	background-color: #e3efff #c1d5ef;
+	color: white;
+	font: Verdana 8px;
+}
+
+ETabFolder {
+	simple: true;
+}
+
+CTabItem {
+	color: black;
+	font: Verdana 8px;
+}
+
+CTabItem:selected {
+	background-color: #e3efff #c1d5ef 60%;
+	font-weight: normal;
+	font: Verdana 8px;
+}
+
+CTabItem.active:selected {
+	background-color: #e3efff #c1d5ef 50%;
+	color: #1d659f;
+	font: bold;
+}
+*/
+
+CTabFolder {
+//	font: Verdana 8px;
+    setForeground(#black);
+    setBackground(#e3,ef,ff);
+    setSelectionBackground(#e3,ef,ff); // #c1d5ef 60%;
+}
+
+
+Shell {
+    setBackground(#e3,ef,ff); // #c1d5ef 60%;
+}

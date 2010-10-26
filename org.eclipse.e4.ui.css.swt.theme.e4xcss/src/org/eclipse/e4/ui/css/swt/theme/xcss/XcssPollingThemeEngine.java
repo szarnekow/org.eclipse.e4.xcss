@@ -55,7 +55,6 @@ public class XcssPollingThemeEngine implements IThemeEngine {
 	
 	private static final Logger logger = Logger.getLogger(XcssPollingThemeEngine.class);
 
-	private Object timerTaskLock = new Object();
 	private URI currentTheme;
 	private StyleSheet currentStyleSheet;
 	private Display display;
@@ -72,7 +71,7 @@ public class XcssPollingThemeEngine implements IThemeEngine {
 		this.renderer = renderer;
 		
 		IExtensionRegistry registry = RegistryFactory.getRegistry();
-		IExtensionPoint extensionPoint = registry.getExtensionPoint("org.eclipse.e4.ui.css.swt.theme");
+		IExtensionPoint extensionPoint = registry.getExtensionPoint("org.eclipse.e4.ui.css.swt.theme.xcss");
 
 		for (IExtension extension : extensionPoint.getExtensions()) {
 			for (IConfigurationElement element : extension.getConfigurationElements()) {
@@ -183,9 +182,7 @@ public class XcssPollingThemeEngine implements IThemeEngine {
 	}
 	
 	protected void applyStyles() {
-		synchronized (timerTaskLock) {
-			new XcssStyleApplier(display, currentStyleSheet, renderer).applyStyles();
-		}
+		new XcssStyleApplier(display, currentStyleSheet, renderer).applyStyles();
 	}
 
 	public void setTheme(ITheme theme, boolean restore) {
@@ -217,9 +214,7 @@ public class XcssPollingThemeEngine implements IThemeEngine {
 	}
 
 	public void applyStyles(Widget widget, boolean applyStylesToChildNodes) {
-//		synchronized (timerTaskLock) {
-			new XcssStyleApplier(display, currentStyleSheet, renderer).applyStyles(widget, applyStylesToChildNodes);
-//		}
+		new XcssStyleApplier(display, currentStyleSheet, renderer).applyStyles(widget, applyStylesToChildNodes);
 	}
 
 	private String getPreferenceThemeId() {
