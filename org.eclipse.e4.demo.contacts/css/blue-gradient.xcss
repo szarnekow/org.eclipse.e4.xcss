@@ -1,19 +1,19 @@
 Label {
 //	font: Verdana 8px;
-	setForeground(#black);
+	foreground : $black;
 }
 
-Label[getParent instanceof Composite] {
-	setForeground(#black);
+Label[parent instanceof Composite] {
+	foreground : $black;
 }
 
 Label #SeparatorLabel {
-	setForeground(#1d,65,9f);
+	foreground : #1d659f;
 }
 
-Text[getParent instanceof Composite] {
-	setForeground(#black);
-	setBackground(#white);
+Text[parent instanceof Composite] {
+	foreground : $black;
+	background : $white;
 }
 
 Text {
@@ -21,15 +21,15 @@ Text {
 }
 
 SashForm {
-	setBackground(#c1,d5,ef);
+	background: #c1d5ef;
 }
 
 Composite #DetailsView {
-	setBackground(#e3,ef,ff); /* #c1d5ef 60%; */
+	background: #e3efff; /* #c1d5ef 60%; */
 }
 
 Table {
-  setBackground(#e3,ef,ff); // #c1d5ef 60%;
+    background: #e3efff; // #c1d5ef 60%;
 }
 
 /*
@@ -63,12 +63,12 @@ CTabItem.active:selected {
 
 CTabFolder {
 //	font: Verdana 8px;
-    setForeground(#black);
-    setBackground(#e3,ef,ff);
-    setSelectionBackground(#e3,ef,ff); // #c1d5ef 60%;
+    foreground : $black;
+    background : #e3efff;
+    selectionBackground: #e3efff; // #c1d5ef 60%;
 }
 
 
 Shell {
-    setBackground(#e3,ef,ff); // #c1d5ef 60%;
+    background: #e3efff; // #c1d5ef 60%;
 }
