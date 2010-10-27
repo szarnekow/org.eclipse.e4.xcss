@@ -25,11 +25,11 @@ SashForm {
 }
 
 Control #DetailsView {
-	background: #e8e8e8; // #cccccc 60%;
+	backgroundGradient: #e8e8e8 #cccccc 60%;
 }
 
 Table {
-	background: #e8e8e8; // #cccccc 60%;
+	backgroundGradient: #e8e8e8 #cccccc 60%;
 	foreground: $black;
 //	font: Verdana 8px;
 }

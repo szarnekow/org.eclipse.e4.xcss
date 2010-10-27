@@ -25,11 +25,11 @@ SashForm {
 }
 
 Composite #DetailsView {
-	background: #e3efff; /* #c1d5ef 60%; */
+	backgroundGradient: #e3efff #c1d5ef 60%;
 }
 
 Table {
-    background: #e3efff; // #c1d5ef 60%;
+    backgroundGradient: #e3efff #c1d5ef 60%;
     foreground: $black;
 }
 
@@ -60,7 +60,6 @@ CTabItem.active:selected {
 	color: #1d659f;
 	font: bold;
 }
-*/
 
 CTabFolder {
 //	font: Verdana 8px;
@@ -68,8 +67,8 @@ CTabFolder {
     background : #e3efff;
     selectionBackground: #e3efff; // #c1d5ef 60%;
 }
-
+*/
 
 Shell {
-    background: #e3efff; // #c1d5ef 60%;
+    background: #c1d5ef; // #e3efff 60%;
 }

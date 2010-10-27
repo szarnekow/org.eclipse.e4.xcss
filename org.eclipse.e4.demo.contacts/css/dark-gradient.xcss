@@ -23,15 +23,15 @@ Text [parent instanceof Composite] {
 }
 
 SashForm {
-	background: #(48, 48, 48);
+	background: #575757;
 }
 
 Control #DetailsView {
-	background: #575757; // gradient radial  #101010 60%;
+	backgroundGradient: #575757 #101010 60%;
 }
 
 Table {
-	background: #575757; // gradient radial  #101010 100%;
+	backgroundGradient: #575757 #101010 100%;
 	foreground: #(240, 240, 240);
 //	font: Verdana 8px;
 }
@@ -63,5 +63,5 @@ CTabItem.active:selected {
 }
 */
 Shell {
-    background: #575757; // gradient radial #575757 #101010 60%;
+    background: #575757; // #101010 60%;
 }
